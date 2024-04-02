@@ -28,7 +28,7 @@ const getData = () =>{
                                     <div class="row>
                                         <div class ="col-1">
                                             <a href="#" class="btn btn-primary">Details</a>
-                                            <a href="#" class="btn btn-primary">Like</a>
+                                            <a href="#" class="btn btn-primary">${el.liked ? `Unlike (${el.count})`: `Like (${el.count})`}</a>
                                         </div>
                                     </div>
                                 </div>
