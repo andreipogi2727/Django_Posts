@@ -41,6 +41,7 @@ const likeUnlikePosts = ()=> {
             success: function(response)
             {
                 console.log(response)
+                clickedBtn.textContent = response.liked ? `Unlike (${response.count})` : `Like (${response.count})`
             },
             error: function(error){
                 console.log(error)
