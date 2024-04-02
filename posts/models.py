@@ -15,6 +15,11 @@ class Post(models.Model):
     def _str_(self):
         return str(self.title)
     
+
+    
     @property
     def like_count(self):
         return self.liked.all().count()
+    
+    class Meta:
+        ordering = ("-created",)
