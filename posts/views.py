@@ -26,5 +26,41 @@ def load_posts_data_view(request, num_posts):
          data.append(item)
     return JsonResponse({'data':data[lower:upper], 'size': size})
 
+# def like_unlike_post(request):
+#     if request.is_ajax():
+#         pk = request.POST.get('pk')
+#         obj = Post.objects.get(pk=pk)
+#         if request.user in obj.liked.all():
+#             liked = False
+#             obj.liked.remove(request.user)
+#         else:
+#             liked = True
+#             obj.liked.add(request.user)
+#         return JsonResponse({'liked': liked, 'count': obj.like_count})
+
+
+def like_unlike_post(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        pk = request.POST.get('pk')
+        if pk:
+            try:
+                obj = Post.objects.get(pk=pk)
+                if request.user in obj.liked.all():
+                    liked = False
+                    obj.liked.remove(request.user)
+                else:
+                    liked = True
+                    obj.liked.add(request.user)
+                return JsonResponse({'liked': liked, 'count': obj.like_count})
+            except Post.DoesNotExist:
+                return JsonResponse({'error': 'Post does not exist.'}, status=404)
+        else:
+            return JsonResponse({'error': 'Missing "pk" parameter in request.'}, status=400)
+    else:
+        return JsonResponse({'error': 'This endpoint only accepts AJAX requests.'}, status=400)
+
+               
+
+
 def hello_world_view(request):
         return JsonResponse({'text': 'hello world'})
