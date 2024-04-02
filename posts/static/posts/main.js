@@ -52,8 +52,6 @@ const likeUnlikePosts = ()=> {
 }
 
 
-
-
 const getData = () =>{
     $.ajax({
         type: 'GET',
