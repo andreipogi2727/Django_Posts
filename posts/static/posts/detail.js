@@ -104,11 +104,14 @@ deleteForm.addEventListener('submit', e=>{
             'csrfmiddlewaretoken': csrf[0].value,
         },
         success: function(response){
+            
             window.location.href = window.location.origin
             localStorage.setItem('title', titleImput.value)
+            //handleAlerts('success', 'post has been deleted')
         },
         error: function(error){
             console.log(error)
+            //handleAlerts('success', 'post has been deleted')
         }
     })
 })
