@@ -22,7 +22,6 @@
                 <form id="update-form">
                     {% csrf_token %}
                     {{form|crispy}}
-
                     <div class="modal-footer">
                     <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">close</button>
                     <button type="submit" class="btn btn-success" >update</button>
@@ -46,8 +45,8 @@
                 </div>
                 <div class="modal-footer">
                     <form id="delete-form">
-                       
                         {% csrf_token %}
+                        
                         <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">close</button>
                         <button type="submit" class="btn btn-success" >delete</button>
                     </form>
