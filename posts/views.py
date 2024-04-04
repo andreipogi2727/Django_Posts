@@ -21,6 +21,7 @@ def post_list_and_create(request):
                 'title': instance.title,
                 'body': instance.body,
                 'author': instance.author.user.username,
+                'avatar': instance.author.url, 
                 'id': instance.id
             })
         return redirect('posts:main-board')

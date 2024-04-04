@@ -51,7 +51,10 @@
                         <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">close</button>
                         <button type="submit" class="btn btn-success" >delete</button>
                     </form>
+                    
                 </div>
+                
+
             </div>
         </div>
     </div>
@@ -88,4 +91,14 @@
         <div class="spinner-border" role="status"></div>
     </div>
     <div class="mt-1" id="post-box"></div>
+    <hr>
+    <!-- Author Info -->
+    <div id="author-box" class="mt-2">
+        {% if obj.author.avatar.url %}
+            <img src="{{ obj.author.avatar.url }}" alt="Avatar" class="rounded-circle" width="50" height="50">
+        {% endif %}
+         <b>{{ obj.author.user.username }}</b>
+    </div>
+    
+
 {% endblock content %}
