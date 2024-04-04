@@ -106,12 +106,12 @@ deleteForm.addEventListener('submit', e=>{
         success: function(response){
             
             window.location.href = window.location.origin
-            localStorage.setItem('title', titleImput.value)
-            //handleAlerts('success', 'post has been deleted')
+            localStorage.setItem('title', titleInput.value)
+            handleAlerts('success', 'post has been deleted')
         },
         error: function(error){
             console.log(error)
-            //handleAlerts('success', 'post has been deleted')
+            handleAlerts('success', 'post has been deleted')
         }
     })
 })
